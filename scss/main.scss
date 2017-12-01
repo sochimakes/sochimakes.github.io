@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700');
+
+$yellow: #FBFE56;
+$blue: #0C64C0;
+
+$esm: 391px; 
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+@mixin respond-to($media) {
+    @if $media == esm {
+        @media only screen and (max-width: $esm){ @content; }
+    }
+    @if $media == sm {
+        @media only screen and (max-width: $sm){ @content; }
+    }
+    @if $media == md {
+        @media only screen and (max-width: $md){ @content; }
+    }
+    @if $media == lg {
+        @media only screen and (max-width: $lg){ @content; }
+    }
+    @if $media == xl {
+        @media only screen and (max-width: $xl){ @content; }
+    }
+}
+
+$body-font-size: 36px;
+$body-font-size-md: 24px;
+$body-font-size-sm: 18px;
+$body-font-size-esm: 16px;
+
+body {
+    background-color: $yellow;
+    font-family: "Roboto Mono", monospace;
+    color: $blue;
+    font-size: $body-font-size;
+    font-weight: 400;
+    line-height: 1.5em;
+    @include respond-to(md) {
+        font-size: $body-font-size-md;
+    }
+    @include respond-to(sm) {
+        font-size: $body-font-size-sm;
+    }
+    @include respond-to(esm) {
+        font-size: $body-font-size-esm;
+    }
+}
+
+h1 {
+    padding-top: 1.2em;
+    font-size: 2em;
+    padding-bottom: 0.2em;
+    font-weight: 700;
+}
+
+a {
+    color: $blue;
+    text-decoration: underline;
+}
+
+p {
+    padding-top: 0.42em;
+    padding-bottom: 0.42em;
+}
+
+.button {
+    display: inline-block;
+    background: $blue;
+    color: $yellow;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    padding-left: 2em;
+    padding-right: 2em;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 0.9em;
+    margin-right: 1.35em;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        color: $yellow;
+        background: darken($color: $blue, $amount: 5%);
+    }
+}
+
+.footer {
+    margin-top: 2.5em;
+    font-size: 0.66em;
+    margin-bottom: 4em;
+    opacity: 0.5;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.88em;
+}
+
+.right {
+    text-align: right;
+}
